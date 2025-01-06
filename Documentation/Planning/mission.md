@@ -26,19 +26,19 @@ To create a minimalist iOS application designed to track daily progress for the 
    - Optional reminders via local notifications.
 2. Utilize SwiftUI for a minimalist and efficient user interface.
 3. Ensure local data storage using Core Data or UserDefaults.
-4. Share key takeaways and lessons learned in a detailed LinkedIn article.
+4. Share key takeaways and lessons learned.
 
 ---
 
 ### Target Audience
-- **Primary Audience**: You, as the creator and user of the app, for personal use during the challenge.
+- **Primary Audience**: Sizwe, for personal use during the challenge.
 - **Secondary Audience**: Aspiring developers and tech enthusiasts who can learn from the shared development process.
 
 ---
 
 ### Deliverables
 1. A functional iOS app with all MVP features implemented.
-2. A LinkedIn article documenting the project lifecycle, including:
+2. 4 LinkedIn article documenting the project lifecycle, including:
    - Concept and planning.
    - Technical challenges and solutions.
    - Insights into iOS development using SwiftUI.
