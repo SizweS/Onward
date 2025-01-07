@@ -11,7 +11,6 @@
   - Create wireframes for the main screens (dashboard, progress view, settings).
   - Set up the SwiftUI project structure in Xcode.
   - Begin implementing the basic UI using Apple’s native components (e.g., Lists, Buttons, DatePickers).
-  - Write unit tests for the initial UI components to ensure compliance with TDD principles.
 
 - **Day 3**: Add core features like task tracking, reminders, and progress overview.
   - Implement local data storage using UserDefaults or Core Data.
