@@ -6,33 +6,34 @@
 //
 import Foundation
 
-class TaskViewModel: ObservableObject {
+class PracticeViewModel: ObservableObject {
     @Published
-    private(set) var task: Task
+    private(set) var practice: Practice
     
-    init(task: Task){
-        self.task = task
+    init(practice: Practice){
+        self.practice = practice
     }
     
     func toggleCompletion() {
-        task.isCompleted.toggle()
+        practice.isCompleted.toggle()
     }
     
     func setReminderTime(at time: DateComponents) {
-        task.reminderTime = time
+        practice.reminderTime = time
     }
     
     func removeReminder() {
-        task.reminderTime = nil
+        practice.reminderTime = nil
     }
     
     func getReminderTimeAsString() -> String {
-        guard let hour  = task.reminderTime?.hour,
-              let minute = task.reminderTime?.minute
+        guard let hour  = practice.reminderTime?.hour,
+              let minute = practice.reminderTime?.minute
         else {
             return ""
         }
         
         return String(format: "%02d:%02d", hour, minute)
     }
+    
 }

@@ -7,22 +7,22 @@
 
 import SwiftUI
 
-struct TaskView: View {
+struct PracticeView: View {
     @State private var presentTimePicker = false
     @State private var selectedTime = Date() // Default time for date picker
     
-    @ObservedObject var viewModel: TaskViewModel
+    @ObservedObject var viewModel: PracticeViewModel
     
     private let generator = UIImpactFeedbackGenerator(style: .medium) // for haptic feedback
     
     var body: some View {
         HStack{
             HStack {
-                Image(systemName: viewModel.task.isCompleted ? "circle.circle.fill" : "circle")
+                Image(systemName: viewModel.practice.isCompleted ? "circle.circle.fill" : "circle")
                     .font(.title2)
                     .foregroundColor(Color.green)
                 
-                Text(viewModel.task.name)
+                Text(viewModel.practice.name)
                     .font(.title2)
                     .frame(maxWidth: .infinity, alignment: .leading)
             }
@@ -85,5 +85,5 @@ struct TaskView: View {
 }
 
 #Preview {
-    TaskView(viewModel: TaskViewModel(task: Task(name: "To Do 1")))
+    PracticeView(viewModel: PracticeViewModel(practice: Practice(name: "To Do 1")))
 }

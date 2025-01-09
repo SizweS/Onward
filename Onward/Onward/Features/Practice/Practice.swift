@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Task: Identifiable {
+struct Practice: Identifiable {
     let id: UUID = UUID()
     let name: String
     var isCompleted: Bool = false

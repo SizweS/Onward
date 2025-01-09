@@ -9,26 +9,26 @@ import Testing
 @testable import Onward
 import Foundation
 
-struct TaksTests {
+struct PracticeViewModelTests {
     
-    var sut: TaskViewModel
+    var sut: PracticeViewModel
     
     init() async throws {
-        sut = TaskViewModel(task: Task(name: "Drink water"))
+        sut = PracticeViewModel(practice: Practice(name: "Drink water"))
     }
     
     @Test func testToggleCompletion() throws {
         
         // Initially, the task is not completed
-        #expect(sut.task.isCompleted == false)
+        #expect(sut.practice.isCompleted == false)
         
         // Toggle to complete the task
         sut.toggleCompletion()
-        #expect(sut.task.isCompleted == true)
+        #expect(sut.practice.isCompleted == true)
         
         //Toggle again to undo completion
         sut.toggleCompletion()
-        #expect(sut.task.isCompleted == false)
+        #expect(sut.practice.isCompleted == false)
     }
     
     @Test  func testSetReminderTime() throws {
@@ -36,13 +36,13 @@ struct TaksTests {
         
         sut.setReminderTime(at: reminderTime)
         
-        #expect(sut.task.reminderTime == reminderTime)
+        #expect(sut.practice.reminderTime == reminderTime)
     }
     
     @Test func testRemoveReminder() throws {
         sut.removeReminder()
         
-        #expect(sut.task.reminderTime == nil)
+        #expect(sut.practice.reminderTime == nil)
     }
     
     @Test func testGetReminderTimeAsString() throws {
