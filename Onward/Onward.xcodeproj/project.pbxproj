@@ -7,40 +7,40 @@
 	objects = {
 
 /* Begin PBXContainerItemProxy section */
-		30FB28652D3039DA00B88320 /* PBXContainerItemProxy */ = {
+		30FB289E2D30442600B88320 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 30FB284A2D3039D800B88320 /* Project object */;
+			containerPortal = 30FB28832D30442400B88320 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 30FB28512D3039D800B88320;
+			remoteGlobalIDString = 30FB288A2D30442400B88320;
 			remoteInfo = Onward;
 		};
-		30FB286F2D3039DA00B88320 /* PBXContainerItemProxy */ = {
+		30FB28A82D30442600B88320 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 30FB284A2D3039D800B88320 /* Project object */;
+			containerPortal = 30FB28832D30442400B88320 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 30FB28512D3039D800B88320;
+			remoteGlobalIDString = 30FB288A2D30442400B88320;
 			remoteInfo = Onward;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		30FB28522D3039D800B88320 /* Onward.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Onward.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		30FB28642D3039DA00B88320 /* OnwardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OnwardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		30FB286E2D3039DA00B88320 /* OnwardUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OnwardUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		30FB288B2D30442400B88320 /* Onward.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Onward.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		30FB289D2D30442600B88320 /* OnwardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OnwardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		30FB28A72D30442600B88320 /* OnwardUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OnwardUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		30FB28542D3039D800B88320 /* Onward */ = {
+		30FB288D2D30442400B88320 /* Onward */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = Onward;
 			sourceTree = "<group>";
 		};
-		30FB28672D3039DA00B88320 /* OnwardTests */ = {
+		30FB28A02D30442600B88320 /* OnwardTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = OnwardTests;
 			sourceTree = "<group>";
 		};
-		30FB28712D3039DA00B88320 /* OnwardUITests */ = {
+		30FB28AA2D30442600B88320 /* OnwardUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = OnwardUITests;
 			sourceTree = "<group>";
@@ -48,21 +48,21 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		30FB284F2D3039D800B88320 /* Frameworks */ = {
+		30FB28882D30442400B88320 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		30FB28612D3039DA00B88320 /* Frameworks */ = {
+		30FB289A2D30442600B88320 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		30FB286B2D3039DA00B88320 /* Frameworks */ = {
+		30FB28A42D30442600B88320 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -72,22 +72,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		30FB28492D3039D800B88320 = {
+		30FB28822D30442400B88320 = {
 			isa = PBXGroup;
 			children = (
-				30FB28542D3039D800B88320 /* Onward */,
-				30FB28672D3039DA00B88320 /* OnwardTests */,
-				30FB28712D3039DA00B88320 /* OnwardUITests */,
-				30FB28532D3039D800B88320 /* Products */,
+				30FB288D2D30442400B88320 /* Onward */,
+				30FB28A02D30442600B88320 /* OnwardTests */,
+				30FB28AA2D30442600B88320 /* OnwardUITests */,
+				30FB288C2D30442400B88320 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		30FB28532D3039D800B88320 /* Products */ = {
+		30FB288C2D30442400B88320 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				30FB28522D3039D800B88320 /* Onward.app */,
-				30FB28642D3039DA00B88320 /* OnwardTests.xctest */,
-				30FB286E2D3039DA00B88320 /* OnwardUITests.xctest */,
+				30FB288B2D30442400B88320 /* Onward.app */,
+				30FB289D2D30442600B88320 /* OnwardTests.xctest */,
+				30FB28A72D30442600B88320 /* OnwardUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -95,134 +95,134 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		30FB28512D3039D800B88320 /* Onward */ = {
+		30FB288A2D30442400B88320 /* Onward */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 30FB28782D3039DA00B88320 /* Build configuration list for PBXNativeTarget "Onward" */;
+			buildConfigurationList = 30FB28B12D30442600B88320 /* Build configuration list for PBXNativeTarget "Onward" */;
 			buildPhases = (
-				30FB284E2D3039D800B88320 /* Sources */,
-				30FB284F2D3039D800B88320 /* Frameworks */,
-				30FB28502D3039D800B88320 /* Resources */,
+				30FB28872D30442400B88320 /* Sources */,
+				30FB28882D30442400B88320 /* Frameworks */,
+				30FB28892D30442400B88320 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				30FB28542D3039D800B88320 /* Onward */,
+				30FB288D2D30442400B88320 /* Onward */,
 			);
 			name = Onward;
 			packageProductDependencies = (
 			);
 			productName = Onward;
-			productReference = 30FB28522D3039D800B88320 /* Onward.app */;
+			productReference = 30FB288B2D30442400B88320 /* Onward.app */;
 			productType = "com.apple.product-type.application";
 		};
-		30FB28632D3039DA00B88320 /* OnwardTests */ = {
+		30FB289C2D30442600B88320 /* OnwardTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 30FB287B2D3039DA00B88320 /* Build configuration list for PBXNativeTarget "OnwardTests" */;
+			buildConfigurationList = 30FB28B42D30442600B88320 /* Build configuration list for PBXNativeTarget "OnwardTests" */;
 			buildPhases = (
-				30FB28602D3039DA00B88320 /* Sources */,
-				30FB28612D3039DA00B88320 /* Frameworks */,
-				30FB28622D3039DA00B88320 /* Resources */,
+				30FB28992D30442600B88320 /* Sources */,
+				30FB289A2D30442600B88320 /* Frameworks */,
+				30FB289B2D30442600B88320 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				30FB28662D3039DA00B88320 /* PBXTargetDependency */,
+				30FB289F2D30442600B88320 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				30FB28672D3039DA00B88320 /* OnwardTests */,
+				30FB28A02D30442600B88320 /* OnwardTests */,
 			);
 			name = OnwardTests;
 			packageProductDependencies = (
 			);
 			productName = OnwardTests;
-			productReference = 30FB28642D3039DA00B88320 /* OnwardTests.xctest */;
+			productReference = 30FB289D2D30442600B88320 /* OnwardTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		30FB286D2D3039DA00B88320 /* OnwardUITests */ = {
+		30FB28A62D30442600B88320 /* OnwardUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 30FB287E2D3039DA00B88320 /* Build configuration list for PBXNativeTarget "OnwardUITests" */;
+			buildConfigurationList = 30FB28B72D30442600B88320 /* Build configuration list for PBXNativeTarget "OnwardUITests" */;
 			buildPhases = (
-				30FB286A2D3039DA00B88320 /* Sources */,
-				30FB286B2D3039DA00B88320 /* Frameworks */,
-				30FB286C2D3039DA00B88320 /* Resources */,
+				30FB28A32D30442600B88320 /* Sources */,
+				30FB28A42D30442600B88320 /* Frameworks */,
+				30FB28A52D30442600B88320 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				30FB28702D3039DA00B88320 /* PBXTargetDependency */,
+				30FB28A92D30442600B88320 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				30FB28712D3039DA00B88320 /* OnwardUITests */,
+				30FB28AA2D30442600B88320 /* OnwardUITests */,
 			);
 			name = OnwardUITests;
 			packageProductDependencies = (
 			);
 			productName = OnwardUITests;
-			productReference = 30FB286E2D3039DA00B88320 /* OnwardUITests.xctest */;
+			productReference = 30FB28A72D30442600B88320 /* OnwardUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		30FB284A2D3039D800B88320 /* Project object */ = {
+		30FB28832D30442400B88320 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1610;
 				LastUpgradeCheck = 1610;
 				TargetAttributes = {
-					30FB28512D3039D800B88320 = {
+					30FB288A2D30442400B88320 = {
 						CreatedOnToolsVersion = 16.1;
 					};
-					30FB28632D3039DA00B88320 = {
+					30FB289C2D30442600B88320 = {
 						CreatedOnToolsVersion = 16.1;
-						TestTargetID = 30FB28512D3039D800B88320;
+						TestTargetID = 30FB288A2D30442400B88320;
 					};
-					30FB286D2D3039DA00B88320 = {
+					30FB28A62D30442600B88320 = {
 						CreatedOnToolsVersion = 16.1;
-						TestTargetID = 30FB28512D3039D800B88320;
+						TestTargetID = 30FB288A2D30442400B88320;
 					};
 				};
 			};
-			buildConfigurationList = 30FB284D2D3039D800B88320 /* Build configuration list for PBXProject "Onward" */;
+			buildConfigurationList = 30FB28862D30442400B88320 /* Build configuration list for PBXProject "Onward" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = 30FB28492D3039D800B88320;
+			mainGroup = 30FB28822D30442400B88320;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 30FB28532D3039D800B88320 /* Products */;
+			productRefGroup = 30FB288C2D30442400B88320 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				30FB28512D3039D800B88320 /* Onward */,
-				30FB28632D3039DA00B88320 /* OnwardTests */,
-				30FB286D2D3039DA00B88320 /* OnwardUITests */,
+				30FB288A2D30442400B88320 /* Onward */,
+				30FB289C2D30442600B88320 /* OnwardTests */,
+				30FB28A62D30442600B88320 /* OnwardUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		30FB28502D3039D800B88320 /* Resources */ = {
+		30FB28892D30442400B88320 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		30FB28622D3039DA00B88320 /* Resources */ = {
+		30FB289B2D30442600B88320 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		30FB286C2D3039DA00B88320 /* Resources */ = {
+		30FB28A52D30442600B88320 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -232,21 +232,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		30FB284E2D3039D800B88320 /* Sources */ = {
+		30FB28872D30442400B88320 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		30FB28602D3039DA00B88320 /* Sources */ = {
+		30FB28992D30442600B88320 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		30FB286A2D3039DA00B88320 /* Sources */ = {
+		30FB28A32D30442600B88320 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -256,20 +256,20 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		30FB28662D3039DA00B88320 /* PBXTargetDependency */ = {
+		30FB289F2D30442600B88320 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 30FB28512D3039D800B88320 /* Onward */;
-			targetProxy = 30FB28652D3039DA00B88320 /* PBXContainerItemProxy */;
+			target = 30FB288A2D30442400B88320 /* Onward */;
+			targetProxy = 30FB289E2D30442600B88320 /* PBXContainerItemProxy */;
 		};
-		30FB28702D3039DA00B88320 /* PBXTargetDependency */ = {
+		30FB28A92D30442600B88320 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 30FB28512D3039D800B88320 /* Onward */;
-			targetProxy = 30FB286F2D3039DA00B88320 /* PBXContainerItemProxy */;
+			target = 30FB288A2D30442400B88320 /* Onward */;
+			targetProxy = 30FB28A82D30442600B88320 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		30FB28762D3039DA00B88320 /* Debug */ = {
+		30FB28AF2D30442600B88320 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -332,7 +332,7 @@
 			};
 			name = Debug;
 		};
-		30FB28772D3039DA00B88320 /* Release */ = {
+		30FB28B02D30442600B88320 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -388,7 +388,7 @@
 			};
 			name = Release;
 		};
-		30FB28792D3039DA00B88320 /* Debug */ = {
+		30FB28B22D30442600B88320 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -404,13 +404,12 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.onward.Onward;
+				PRODUCT_BUNDLE_IDENTIFIER = com.onward.sizwe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -418,7 +417,7 @@
 			};
 			name = Debug;
 		};
-		30FB287A2D3039DA00B88320 /* Release */ = {
+		30FB28B32D30442600B88320 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -434,13 +433,12 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.onward.Onward;
+				PRODUCT_BUNDLE_IDENTIFIER = com.onward.sizwe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -448,7 +446,7 @@
 			};
 			name = Release;
 		};
-		30FB287C2D3039DA00B88320 /* Debug */ = {
+		30FB28B52D30442600B88320 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -467,7 +465,7 @@
 			};
 			name = Debug;
 		};
-		30FB287D2D3039DA00B88320 /* Release */ = {
+		30FB28B62D30442600B88320 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -486,7 +484,7 @@
 			};
 			name = Release;
 		};
-		30FB287F2D3039DA00B88320 /* Debug */ = {
+		30FB28B82D30442600B88320 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -503,7 +501,7 @@
 			};
 			name = Debug;
 		};
-		30FB28802D3039DA00B88320 /* Release */ = {
+		30FB28B92D30442600B88320 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -523,43 +521,43 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		30FB284D2D3039D800B88320 /* Build configuration list for PBXProject "Onward" */ = {
+		30FB28862D30442400B88320 /* Build configuration list for PBXProject "Onward" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				30FB28762D3039DA00B88320 /* Debug */,
-				30FB28772D3039DA00B88320 /* Release */,
+				30FB28AF2D30442600B88320 /* Debug */,
+				30FB28B02D30442600B88320 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		30FB28782D3039DA00B88320 /* Build configuration list for PBXNativeTarget "Onward" */ = {
+		30FB28B12D30442600B88320 /* Build configuration list for PBXNativeTarget "Onward" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				30FB28792D3039DA00B88320 /* Debug */,
-				30FB287A2D3039DA00B88320 /* Release */,
+				30FB28B22D30442600B88320 /* Debug */,
+				30FB28B32D30442600B88320 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		30FB287B2D3039DA00B88320 /* Build configuration list for PBXNativeTarget "OnwardTests" */ = {
+		30FB28B42D30442600B88320 /* Build configuration list for PBXNativeTarget "OnwardTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				30FB287C2D3039DA00B88320 /* Debug */,
-				30FB287D2D3039DA00B88320 /* Release */,
+				30FB28B52D30442600B88320 /* Debug */,
+				30FB28B62D30442600B88320 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		30FB287E2D3039DA00B88320 /* Build configuration list for PBXNativeTarget "OnwardUITests" */ = {
+		30FB28B72D30442600B88320 /* Build configuration list for PBXNativeTarget "OnwardUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				30FB287F2D3039DA00B88320 /* Debug */,
-				30FB28802D3039DA00B88320 /* Release */,
+				30FB28B82D30442600B88320 /* Debug */,
+				30FB28B92D30442600B88320 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 30FB284A2D3039D800B88320 /* Project object */;
+	rootObject = 30FB28832D30442400B88320 /* Project object */;
 }
