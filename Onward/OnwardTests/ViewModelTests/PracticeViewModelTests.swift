@@ -39,6 +39,18 @@ struct PracticeViewModelTests {
         #expect(sut.practice.reminderTime == reminderTime)
     }
     
+    @Test func updateExistingReminderTime() throws {
+
+        let initialTime = DateComponents(hour: 9, minute: 0)
+        sut.setReminderTime(at: initialTime)
+        let newTime = DateComponents(hour: 18, minute: 30)
+        
+        sut.setReminderTime(at: newTime)
+        
+        #expect(sut.practice.reminderTime == newTime)
+        #expect(sut.practice.reminderTime != initialTime)
+    }
+    
     @Test func testRemoveReminder() throws {
         sut.removeReminder()
         
