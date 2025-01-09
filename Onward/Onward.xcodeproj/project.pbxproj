@@ -14,19 +14,11 @@
 			remoteGlobalIDString = 30FB288A2D30442400B88320;
 			remoteInfo = Onward;
 		};
-		30FB28A82D30442600B88320 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 30FB28832D30442400B88320 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 30FB288A2D30442400B88320;
-			remoteInfo = Onward;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		30FB288B2D30442400B88320 /* Onward.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Onward.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30FB289D2D30442600B88320 /* OnwardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OnwardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		30FB28A72D30442600B88320 /* OnwardUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OnwardUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -38,11 +30,6 @@
 		30FB28A02D30442600B88320 /* OnwardTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = OnwardTests;
-			sourceTree = "<group>";
-		};
-		30FB28AA2D30442600B88320 /* OnwardUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = OnwardUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -62,13 +49,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		30FB28A42D30442600B88320 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -77,7 +57,6 @@
 			children = (
 				30FB288D2D30442400B88320 /* Onward */,
 				30FB28A02D30442600B88320 /* OnwardTests */,
-				30FB28AA2D30442600B88320 /* OnwardUITests */,
 				30FB288C2D30442400B88320 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -87,7 +66,6 @@
 			children = (
 				30FB288B2D30442400B88320 /* Onward.app */,
 				30FB289D2D30442600B88320 /* OnwardTests.xctest */,
-				30FB28A72D30442600B88320 /* OnwardUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -140,29 +118,6 @@
 			productReference = 30FB289D2D30442600B88320 /* OnwardTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		30FB28A62D30442600B88320 /* OnwardUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 30FB28B72D30442600B88320 /* Build configuration list for PBXNativeTarget "OnwardUITests" */;
-			buildPhases = (
-				30FB28A32D30442600B88320 /* Sources */,
-				30FB28A42D30442600B88320 /* Frameworks */,
-				30FB28A52D30442600B88320 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				30FB28A92D30442600B88320 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				30FB28AA2D30442600B88320 /* OnwardUITests */,
-			);
-			name = OnwardUITests;
-			packageProductDependencies = (
-			);
-			productName = OnwardUITests;
-			productReference = 30FB28A72D30442600B88320 /* OnwardUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -177,10 +132,6 @@
 						CreatedOnToolsVersion = 16.1;
 					};
 					30FB289C2D30442600B88320 = {
-						CreatedOnToolsVersion = 16.1;
-						TestTargetID = 30FB288A2D30442400B88320;
-					};
-					30FB28A62D30442600B88320 = {
 						CreatedOnToolsVersion = 16.1;
 						TestTargetID = 30FB288A2D30442400B88320;
 					};
@@ -202,7 +153,6 @@
 			targets = (
 				30FB288A2D30442400B88320 /* Onward */,
 				30FB289C2D30442600B88320 /* OnwardTests */,
-				30FB28A62D30442600B88320 /* OnwardUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -216,13 +166,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		30FB289B2D30442600B88320 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		30FB28A52D30442600B88320 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -246,13 +189,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		30FB28A32D30442600B88320 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -260,11 +196,6 @@
 			isa = PBXTargetDependency;
 			target = 30FB288A2D30442400B88320 /* Onward */;
 			targetProxy = 30FB289E2D30442600B88320 /* PBXContainerItemProxy */;
-		};
-		30FB28A92D30442600B88320 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 30FB288A2D30442400B88320 /* Onward */;
-			targetProxy = 30FB28A82D30442600B88320 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -484,40 +415,6 @@
 			};
 			name = Release;
 		};
-		30FB28B82D30442600B88320 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = MM38T92G66;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.onward.OnwardUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Onward;
-			};
-			name = Debug;
-		};
-		30FB28B92D30442600B88320 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = MM38T92G66;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.onward.OnwardUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Onward;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -544,15 +441,6 @@
 			buildConfigurations = (
 				30FB28B52D30442600B88320 /* Debug */,
 				30FB28B62D30442600B88320 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		30FB28B72D30442600B88320 /* Build configuration list for PBXNativeTarget "OnwardUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				30FB28B82D30442600B88320 /* Debug */,
-				30FB28B92D30442600B88320 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
