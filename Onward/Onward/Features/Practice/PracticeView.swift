@@ -6,41 +6,40 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct PracticeView: View {
-    @State private var presentTimePicker = false
-    @State private var selectedTime = Date() // Default time for date picker
+    @Environment(\.modelContext) private var modelContext
+    let practice: Practice
     
-    @ObservedObject var viewModel: PracticeViewModel
+    @State private var selectedTime = Date() // Default time for date picker
+    @State private var presentTimePicker: Bool = false
     
     private let generator = UIImpactFeedbackGenerator(style: .medium) // for haptic feedback
     
     var body: some View {
-        HStack{
+        HStack {
             HStack {
-                Image(systemName: viewModel.practice.isCompleted ? "circle.circle.fill" : "circle")
-                    .font(.title2)
+                Image(systemName: practice.isCompleted ? "circle.circle.fill" : "circle")
+                    .font(.title3)
                     .foregroundColor(Color.green)
                 
-                Text(viewModel.practice.name)
-                    .font(.title2)
+                Text(practice.name)
+                    .font(.callout)
                     .frame(maxWidth: .infinity, alignment: .leading)
             }
             .onTapGesture {
-                viewModel.toggleCompletion()
-                
-                generator.impactOccurred()
+                toggleCompletion()
             }
             
             Button(action: {
                 presentTimePicker = true
             }) {
                 Image(systemName: "clock.circle")
-                    .font(.title)
-                Text(viewModel.getReminderTimeAsString())
+                    .font(.title3)
+                Text(practice.getReminderTimeAsString())
             }
         }
-        .padding()
         .sheet(isPresented: $presentTimePicker) {
             VStack {
                 DatePicker(
@@ -52,11 +51,8 @@ struct PracticeView: View {
                 .labelsHidden()
 
                 HStack {
-                    
                     Button(action: {
-                        let calendar = Calendar.current
-                        let components = calendar.dateComponents([.hour, .minute], from: selectedTime)
-                        viewModel.setReminderTime(at: components)
+                        setReminderTime(selectedTime)
                         presentTimePicker = false
                     }) {
                         Text("Set Reminder")
@@ -65,15 +61,14 @@ struct PracticeView: View {
                     .buttonStyle(.borderedProminent)
                                         
                     Button(action: {
-                        viewModel.removeReminder()
+                        removeReminder()
                         presentTimePicker = false
                     }) {
-                            Text("Remove")
-                            Image(systemName: "trash")
+                        Text("Remove")
+                        Image(systemName: "trash")
                     }
                     .buttonStyle(.bordered)
                     .tint(.red)
-
                 }
                 .frame(maxWidth: .infinity)
             }
@@ -82,8 +77,42 @@ struct PracticeView: View {
             .presentationDragIndicator(.visible)
         }
     }
+    
+    private func toggleCompletion() {
+        withAnimation {
+            practice.isCompleted.toggle()
+            try? modelContext.save()
+            generator.impactOccurred()
+        }
+    }
+    
+    private func setReminderTime(_ date: Date) {
+        withAnimation {
+                let calendar = Calendar.current
+                let components = calendar.dateComponents([.hour, .minute], from: date)
+                practice.reminderHour = components.hour
+                practice.reminderMinute = components.minute
+                try? modelContext.save() // Save the changes to the database
+            }
+    }
+    
+    private func removeReminder() {
+        withAnimation {
+            practice.reminderHour = nil
+            practice.reminderMinute = nil
+            try? modelContext.save() // Save the changes to the database
+        }
+    }
 }
 
 #Preview {
-    PracticeView(viewModel: PracticeViewModel(practice: Practice(name: "To Do 1")))
+    do {
+        let config = ModelConfiguration(isStoredInMemoryOnly: true)
+        let container = try ModelContainer(for: Practice.self, configurations: config)
+        let practice = Practice(name: "Workout 1")
+        return PracticeView(practice: practice)
+            .modelContainer(container)
+    } catch {
+        return Text("Failed to create container")
+    }
 }
