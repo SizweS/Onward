@@ -13,24 +13,25 @@ import Foundation
 struct reminderProtocolTests {
     
     struct Testreminder: ReminderProtocol {
-        var reminderTime: DateComponents?
+        var reminderHour: Int?
+        var reminderMinute: Int?
     }
     
     @Test func testGetReminderTimeAsString() throws {
         // Valid time
-        let reminder1 = Testreminder(reminderTime: DateComponents(hour: 8, minute: 0))
+        let reminder1 = Testreminder(reminderHour: 8, reminderMinute: 0)
         #expect(reminder1.getReminderTimeAsString() == "08:00")
         
         // Different valid time
-        let reminder2 = Testreminder(reminderTime: DateComponents(hour: 10, minute: 0))
+        let reminder2 = Testreminder(reminderHour: 10, reminderMinute: 0)
         #expect(reminder2.getReminderTimeAsString() == "10:00")
         
         // nil time
-        let reminder3 = Testreminder(reminderTime: nil)
+        let reminder3 = Testreminder()
         #expect(reminder3.getReminderTimeAsString() == "")
         
         // Invalid components
-        let reminder4 = Testreminder(reminderTime: DateComponents())
+        let reminder4 = Testreminder(reminderHour: 10000, reminderMinute: 300000000)
         #expect(reminder4.getReminderTimeAsString() == "")
         
     }

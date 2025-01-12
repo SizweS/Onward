@@ -15,7 +15,9 @@ protocol ReminderProtocol {
 extension ReminderProtocol {
     func getReminderTimeAsString() -> String {
         guard let hour  = reminderHour,
-              let minute = reminderMinute
+              hour >= 0 && hour < 24,
+              let minute = reminderMinute,
+              minute >= 0 && minute < 60
         else {
             return ""
         }
