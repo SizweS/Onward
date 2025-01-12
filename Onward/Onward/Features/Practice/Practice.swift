@@ -6,10 +6,21 @@
 //
 
 import Foundation
+import SwiftData
 
-struct Practice: Identifiable {
-    let id: UUID = UUID()
-    let name: String
+@Model
+class Practice: ReminderProtocol {
+    var name: String
     var isCompleted: Bool = false
-    var reminderTime: DateComponents? = nil // The time at which a reminder should be triggered for this practice, if set.
+    var reminderHour: Int?
+    var reminderMinute: Int?
+    var discipline: Discipline?
+
+    init(name: String) {
+        self.name = name
+        self.isCompleted = false
+        self.reminderHour = nil
+        self.reminderMinute = nil
+        self.discipline = nil
+    }
 }

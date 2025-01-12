@@ -6,10 +6,22 @@
 //
 
 import Foundation
+import SwiftData
 
-struct Discipline: Identifiable {
-    let id: UUID = UUID()
-    let name: String
-    var reminderTime: DateComponents? = nil // The time at which a reminder should be triggered for this discipline, if set.
-    var practices: [Practice] = [] // A list of practices associated with this discipline.
+@Model
+class Discipline: ReminderProtocol {
+    var name: String
+    var reminderHour: Int?
+    var reminderMinute: Int?
+    @Relationship(deleteRule: .cascade) var practices: [Practice] = []
+    var momentum: Int
+    var lastMomentumUpdate: Date
+    
+    init(name: String) {
+        self.name = name
+        self.reminderHour = nil
+        self.reminderMinute = nil
+        self.momentum = 0
+        self.lastMomentumUpdate = Date()
+    }
 }
