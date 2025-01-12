@@ -18,22 +18,53 @@ struct DisciplineView: View {
     @State private var selectedTime = Date()
     
     var body: some View {
-        List {
-            Section("Practices") {
-                ForEach(discipline.practices) { practice in
-                    PracticeView(practice: practice)
+        ScrollView {
+            VStack(spacing: 20) {
+                
+                // Discipline name
+                Text(discipline.name)
+                    .font(.title)
+                    .fontWeight(.bold)
+                    .padding(.horizontal)
+                // Circular Progress View for tasks
+                CircularProgressView(
+                    completed: discipline.practices.filter { $0.isCompleted }.count,
+                    remaining: discipline.practices.filter { !$0.isCompleted }.count
+                )
+               .frame(height: 150)
+                
+                // Practices List
+                VStack(alignment: .leading, spacing: 10) {
+                    Text("Practices")
+                        .font(.headline)
+                        .padding(.horizontal)
+                    
+                    ForEach(discipline.practices) { practice in
+                        PracticeView(practice: practice)
+                            .padding(.horizontal)
+                    }
+                    .onDelete(perform: deletePractice)
+                    
+                    Button(action: { showingAddPractice = true }) {
+                        Label("Add Practice", systemImage: "plus.circle.fill")
+                    }
+                    .padding([.horizontal, .top])
                 }
-                .onDelete(perform: deletePractice)
+                
+                Divider()
+                
+                // Momentum Spiral Progress View
+                VStack(spacing: 10) {
+                    Text("Momentum")
+                        .font(.headline)
+                    SpiralProgressView(
+                        completed: discipline.momentum,
+                        remaining: discipline.goalDays - discipline.momentum
+                    )
+                    .frame(height: 250)
+                }
             }
         }
-        .toolbar {
-            ToolbarItem {
-                Button(action: { showingAddPractice = true } ) {
-                    Label("Add Practice", systemImage: "plus")
-                }
-            }
-        }
-        .navigationTitle(discipline.name)
         .sheet(isPresented: $showingAddPractice) {
             NavigationView {
                 Form {
@@ -53,56 +84,6 @@ struct DisciplineView: View {
                     .disabled(newPracticeName.isEmpty)
                 )
             }
-            .presentationDetents([.height(200)])
-        }
-        .toolbar {
-            Button(action: {
-                presentTimePicker = true
-            }) {
-                Image(systemName: "clock.circle")
-                Text(discipline.getReminderTimeAsString())
-            }
-        }
-        .sheet(isPresented: $presentTimePicker) {
-            VStack {
-                DatePicker(
-                    "Reminder Time",
-                    selection: $selectedTime,
-                    displayedComponents: .hourAndMinute
-                )
-                .datePickerStyle(WheelDatePickerStyle())
-                .labelsHidden()
-
-                HStack {
-                    Button(action: {
-                        let calendar = Calendar.current
-                        let components = calendar.dateComponents([.hour, .minute], from: selectedTime)
-                        discipline.reminderHour = components.hour
-                        discipline.reminderMinute = components.minute
-                        try? modelContext.save()
-                        presentTimePicker = false
-                    }) {
-                        Text("Set Reminder")
-                            .frame(maxWidth: .infinity)
-                    }                    .buttonStyle(.borderedProminent)
-                    
-                    Button(action: {
-                        discipline.reminderHour = nil
-                        discipline.reminderMinute = nil
-                        try? modelContext.save()
-                        presentTimePicker = false
-                    }) {
-                        Text("Remove")
-                        Image(systemName: "trash")
-                    }
-                    .buttonStyle(.bordered)
-                    .tint(.red)
-                }
-                .frame(maxWidth: .infinity)
-            }
-            .padding()
-            .presentationDetents([.fraction(0.4), .medium])
-            .presentationDragIndicator(.visible)
         }
     }
     
@@ -128,16 +109,43 @@ struct DisciplineView: View {
 }
 
 #Preview {
-    do {
-        let config = ModelConfiguration(isStoredInMemoryOnly: true)
-        let container = try ModelContainer(for: Discipline.self, configurations: config)
-        let discipline = Discipline(name: "Hard 75")
-        return NavigationStack {
-            DisciplineView(discipline: discipline)
-        }
-        .modelContainer(container)
-    } catch {
-        return Text("Failed to create container")
+    // Create a preview container
+    let config = ModelConfiguration(isStoredInMemoryOnly: true)
+    let container = try! ModelContainer(for: Discipline.self, configurations: config)
+    
+    // Create sample discipline with various practices
+    let discipline = Discipline(name: "Learning Swift", goalDays: 100)
+    discipline.momentum = 30
+    
+    // Add sample practices
+    let practices = [
+        "Read SwiftUI Documentation",
+        "Complete Daily Coding Challenge",
+        "Watch WWDC Videos",
+        "Build Sample App",
+        "Practice Debugging"
+    ]
+    
+    for practiceName in practices {
+        let practice = Practice(name: practiceName)
+        practice.discipline = discipline
+        discipline.practices.append(practice)
     }
+    
+    // Mark some practices as completed
+    discipline.practices[0].isCompleted = true
+    discipline.practices[2].isCompleted = true
+    
+    // Add the discipline to the container
+    container.mainContext.insert(discipline)
+    
+    // Create the navigation stack with our view
+    return NavigationStack {
+        DisciplineView(discipline: discipline)
+    }
+    .modelContainer(container)
 }
+
+
+
 

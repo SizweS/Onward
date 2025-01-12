@@ -16,12 +16,14 @@ class Discipline: ReminderProtocol {
     @Relationship(deleteRule: .cascade) var practices: [Practice] = []
     var momentum: Int
     var lastMomentumUpdate: Date
+    var goalDays: Int // Target number of days to maintain discipline
     
-    init(name: String) {
+    init(name: String, goalDays: Int) {
         self.name = name
         self.reminderHour = nil
         self.reminderMinute = nil
-        self.momentum = 0
+        self.momentum = 15
         self.lastMomentumUpdate = Date()
+        self.goalDays = goalDays
     }
 }
