@@ -2,6 +2,63 @@
 
 ### Timeline
 
+- **Day 1**: Planning and SwiftData Implementation
+  - Define app architecture and data models
+  - Set up SwiftData schema
+  - Create basic UI structure
+  - Implement discipline creation
+
+- **Day 2**: Core Features Development
+  - Implement practice tracking
+  - Add streak monitoring
+  - Create basic statistics view
+  - Set up data persistence
+
+- **Day 3**: UI Enhancement and Testing
+  - Refine user interface
+  - Add practice completion flow
+  - Implement basic notifications
+  - Write initial unit tests
+
+- **Day 4**: Documentation and Polish
+  - Update project documentation
+  - Add onboarding flow
+  - Refine user experience
+  - Complete test coverage
+
+- **Day 5**: Feature Extension
+  - Add weekly disciplines section
+  - Implement monthly tracking
+  - Create extended statistics
+  - Add data visualization
+  - Enhanced progress tracking
+
+- **Day 6**: Release Preparation
+  - App Store screenshots
+  - Marketing materials
+  - Final testing
+  - Documentation review
+  - Release submission
+
+### Milestones
+
+| Day | Key Deliverable |
+|-----|----------------|
+| 1   | Basic app structure with SwiftData |
+| 2   | Core tracking functionality |
+| 3   | Polished UI and notifications |
+| 4   | Complete documentation |
+| 5   | Extended features |
+| 6   | App Store submission |
+
+### Success Criteria
+- All core features implemented
+- Test coverage complete
+- Documentation updated
+- App Store ready# Project Timeline
+
+### Timeline
+
 - **Day 1**: Planning and requirements gathering.
   - Define the mission, goals, and objectives.
   - Identify functional and non-functional requirements.

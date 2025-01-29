@@ -1,94 +1,103 @@
 # Feasibility Study
 
 ### Purpose
-This document evaluates the feasibility of developing the **75 Hard Challenge Tracker** app, considering technical, time, and resource constraints as a solo developer with a full-time job.
+This document evaluates the feasibility of developing the **Onward - Discipline & Practice Tracker** app, considering technical, time, and resource constraints as a solo developer.
 
 ---
 
 ## Technical Feasibility
 
 ### **Strengths**
-1. **Familiarity with Swift and SwiftUI**:
-   - Leveraging SwiftUI ensures adherence to Apple’s design principles and allows for faster development.
-2. **Native iOS Development**:
-   - Tools like Xcode, UserDefaults, Core Data, and the Notifications Framework are well-supported and efficient for an MVP.
-3. **Simple App Scope**:
-   - The app is focused on tracking tasks and progress, with no complex third-party integrations.
+1. **Modern Tech Stack**:
+   - SwiftUI for modern UI development
+   - SwiftData for efficient data persistence
+   - Native iOS frameworks for notifications
+2. **Simplified Architecture**:
+   - MV pattern reduces complexity
+   - SwiftData eliminates need for complex data management
+3. **Scope**:
+   - Focused on core discipline tracking features
+   - Modular design for future expansions
 
 ### **Challenges**
-1. **Advanced Features**:
-   - Features like Core Data for detailed data persistence may throw curve balls.
+1. **SwiftData Learning Curve**:
+   - New framework requires learning and adaptation
 2. **Testing**:
-   - Writing robust unit tests while adhering to TDD might take more time than anticipated.
+   - Ensuring proper test coverage with SwiftTest
 
 ### **Conclusion**
-Technical feasibility is **high**, with manageable learning curves for advanced features.
+Technical feasibility is **high**, with SwiftData simplifying data management.
 
 ---
 
 ## Time Feasibility
 
 ### **Strengths**
-1. **Defined Timeline**:
-   - A 4-day project timeline is outlined with specific goals for each day.
-2. **Focused MVP**:
-   - Limiting the scope to essential features ensures efficient use of time.
+1. **Iterative Development**:
+   - Core features first approach
+   - Clear separation of disciplines and practices
+2. **Simplified Architecture**:
+   - Reduced development overhead
+   - Faster implementation cycles
 
 ### **Challenges**
-1. **Balancing Full-Time Job**:
-   - Limited time outside work hours may cause delays.
-2. **Unforeseen Issues**:
-   - Bugs or unexpected challenges might extend the timeline.
+1. **Feature Scope**:
+   - Resisting scope creep
+   - Maintaining focus on core functionality
 
 ### **Conclusion**
-Time feasibility is **moderate**, with careful planning and focus needed to stay on track.
+Time feasibility is **high**, with streamlined architecture and clear priorities.
 
 ---
 
 ## Resource Feasibility
 
 ### **Strengths**
-1. **Existing Tools**:
-   - All required tools (Xcode, GitHub, etc.) are available and familiar.
-2. **Documentation and Support**:
-   - Apple Developer resources and online communities (e.g., Stack Overflow) are readily available.
+1. **Development Tools**:
+   - Xcode 15+
+   - SwiftUI and SwiftData
+   - GitHub for version control
+2. **Documentation**:
+   - Apple's SwiftData documentation
+   - Active developer community
 
 ### **Challenges**
 1. **Solo Development**:
-   - Lack of external feedback during development may increase debugging time.
+   - Limited peer review opportunities
+   - Self-testing requirements
 
 ### **Conclusion**
-Resource feasibility is **high**, as all necessary tools and resources are readily accessible.
+Resource feasibility is **high**, with modern tools supporting development.
 
 ---
 
 ## Financial Feasibility
 
 ### **Strengths**
-1. **No Additional Costs**:
-   - The app is built for personal use, with no hosting or third-party service costs.
-2. **Existing Hardware**:
-   - Development will be done on an existing Mac and iPhone.
+1. **Zero Additional Costs**:
+   - Using existing development tools
+   - No third-party dependencies
+2. **Development Hardware**:
+   - Existing Mac and iPhone
 
 ### **Challenges**
-- **None Identified**: The project has no financial dependencies.
+- None identified
 
 ### **Conclusion**
-Financial feasibility is **very high**, with no significant costs involved.
+Financial feasibility is **very high**.
 
 ---
 
 ## Overall Feasibility
 
-| Feasibility Type       | Assessment       | Notes                                  |
-|------------------------|------------------|----------------------------------------|
-| Technical Feasibility  | High            | Simple scope, manageable challenges.   |
-| Time Feasibility       | Moderate        | Requires focus to balance work and dev.|
-| Resource Feasibility   | High            | Tools and resources readily available. |
-| Financial Feasibility  | Very High       | No costs involved.                     |
+| Feasibility Type       | Assessment | Notes                                    |
+|-----------------------|------------|------------------------------------------|
+| Technical Feasibility | High       | Modern stack with SwiftData simplicity   |
+| Time Feasibility      | High       | Streamlined architecture and clear scope |
+| Resource Feasibility  | High       | All tools and resources available       |
+| Financial Feasibility | Very High  | No additional costs                     |
 
 ---
 
 ### Conclusion
-The **75 Hard Challenge Tracker** app is highly feasible from technical, resource, and financial perspectives. Time constraints are the primary challenge, but with disciplined planning and a focus on the MVP, the project can be successfully completed within the set timeline.
-
+The **Onward** app is highly feasible across all dimensions. The modern tech stack, simplified architecture, and clear scope contribute to a high likelihood of successful implementation.
