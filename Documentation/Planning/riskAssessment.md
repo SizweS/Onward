@@ -9,7 +9,96 @@ This document outlines the potential risks associated with the development of th
 
 ### 1. **Time Constraints**
 - **Likelihood**: High
+- **Impact**: High# Risk Assessment
+
+### Purpose
+This document outlines the potential risks associated with the development of the **Onward - Discipline & Practice Tracker** app, considering that the project is being developed by a solo developer with a full-time job.
+
+---
+
+## Identified Risks
+
+### 1. **Time Constraints**
+- **Likelihood**: High
 - **Impact**: High
+- **Description**: Balancing full-time work and app development may lead to delays.
+- **Mitigation**:
+  - Set realistic daily development goals
+  - Focus on MVP with essential features
+  - Leverage SwiftData's simplicity for faster development
+
+### 2. **Scope Creep**
+- **Likelihood**: High
+- **Impact**: High
+- **Description**: Temptation to add features like weekly/monthly disciplines.
+- **Mitigation**:
+  - Strict adherence to MVP features
+  - Maintain feature backlog
+  - Regular consultation with rubber duck 🦆
+
+### 3. **Technical Debt**
+- **Likelihood**: Medium
+- **Impact**: High
+- **Description**: Rushing implementation could lead to maintenance issues.
+- **Mitigation**:
+  - Maintain clean architecture
+  - Regular code reviews with GitHub Copilot
+  - Comprehensive documentation
+
+### 4. **SwiftData Learning Curve**
+- **Likelihood**: Medium
+- **Impact**: Medium
+- **Description**: New framework may require additional learning time.
+- **Mitigation**:
+  - Focus on essential SwiftData features first
+  - Utilize Apple documentation
+  - Start with simple data models
+
+### 5. **Testing Coverage**
+- **Likelihood**: High
+- **Impact**: Medium
+- **Description**: Limited time might affect testing thoroughness.
+- **Mitigation**:
+  - Focus on critical path testing
+  - Leverage SwiftData's testability
+  - Regular testing during development
+
+### 6. **User Experience**
+- **Likelihood**: Medium
+- **Impact**: High
+- **Description**: Balancing simplicity with functionality.
+- **Mitigation**:
+  - Focus on core user flows
+  - Regular usability self-testing
+  - Maintain minimalist design principles
+
+### 7. **Data Migration**
+- **Likelihood**: Low
+- **Impact**: High
+- **Description**: Future SwiftData schema changes might affect user data.
+- **Mitigation**:
+  - Careful data model design
+  - Version control for data schema
+  - Backup mechanisms
+
+---
+
+## Risk Matrix
+
+| Risk Type          | Likelihood | Impact | Priority |
+|-------------------|------------|--------|----------|
+| Time Constraints  | High       | High   | 1        |
+| Scope Creep      | High       | High   | 1        |
+| Technical Debt   | Medium     | High   | 2        |
+| SwiftData        | Medium     | Medium | 3        |
+| Testing Coverage | High       | Medium | 2        |
+| User Experience  | Medium     | High   | 2        |
+| Data Migration   | Low        | High   | 3        |
+
+---
+
+### Conclusion
+The project carries significant but manageable risks. Focus on MVP features, clean architecture, and thorough testing of critical paths to ensure success.
 - **Description**: Balancing full-time work and app development may lead to delays in project completion.
 - **Mitigation**:
   - Set realistic daily goals based on available time.

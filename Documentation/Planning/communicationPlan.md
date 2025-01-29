@@ -1,5 +1,82 @@
 # Communication Plan
 
+### Purpose
+As a solo developer working on the **Onward - Discipline & Practice Tracker** app with GitHub Copilot as my AI pair programmer, this document outlines our communication approach.
+
+---
+
+## Team Members
+
+1. **Human Developer (Sizwe)**:
+   - Primary developer
+   - Decision maker
+   - Architecture designer
+
+2. **GitHub Copilot**:
+   - AI pair programmer
+   - Code suggestion assistant
+   - Documentation helper
+
+3. **Rubber Duck 🦆**:
+   - Problem-solving companion
+   - Debugging assistant
+   - Scope creep prevention officer
+
+---
+
+## Communication Methods
+
+1. **Developer-Copilot Communication**:
+   - Direct prompts in VS Code
+   - Code suggestions and completions
+   - Documentation assistance
+   - Code review discussions
+
+2. **Rubber Duck Debugging**:
+   - Verbal problem explanation
+   - Architecture discussion
+   - Feature scope validation
+
+3. **Documentation**:
+   - GitHub repository
+   - LinkedIn articles
+   - Code comments
+   - Planning documents
+
+---
+
+## Communication Schedule
+
+1. **Development Sessions**:
+   - Continuous interaction with GitHub Copilot
+   - Regular rubber duck debugging sessions
+   - Documentation updates after significant changes
+
+2. **Problem-Solving Process**:
+   - First: Attempt solo solution
+   - Second: Consult GitHub Copilot
+   - Third: Rubber duck debugging
+   - Fourth: External resources if needed
+
+---
+
+## Documentation Standards
+
+1. **Code Documentation**:
+   - Clear comments
+   - Meaningful variable/function names
+   - SwiftUI preview providers
+
+2. **Project Documentation**:
+   - Updated planning documents
+   - LinkedIn development articles
+   - GitHub README maintenance
+
+---
+
+### Note
+While this might seem humorous for a solo project, maintaining clear communication standards (even with AI and rubber ducks) helps keep the project organized and well-documented.# Communication Plan
+
 ### Disclaimer
 As a solo developer working on the **75 Hard Challenge Tracker** app, a formal communication plan isn't strictly necessary. However, for the sake of thorough documentation and a bit of fun, here's what a communication plan would typically include—along with my own solo-developer approach to "communication."
 
