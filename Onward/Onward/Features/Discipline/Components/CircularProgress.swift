@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CircularProgressView: View {
+struct CircularProgress: View {
     let completed: Int
     let remaining: Int
     let foregroundStyle: Color
@@ -47,5 +47,5 @@ struct CircularProgressView: View {
 }
 
 #Preview {
-    CircularProgressView(completed: 4, remaining: 6, foregroundStyle: .cyan)
+    CircularProgress(completed: 4, remaining: 6, foregroundStyle: .cyan)
 }

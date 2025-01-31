@@ -20,12 +20,11 @@ struct DisciplineView: View {
     var body: some View {
         List {
                 Section("Todays Progress") {
-                    CircularProgressView(
+                    ProgressCard(
                         completed: discipline.practices.filter { $0.isCompleted }.count,
                         remaining: discipline.practices.filter { !$0.isCompleted }.count,
-                        foregroundStyle: Color.cyan
-                    )
-                   .frame(height: 150)
+                        foregroundStyle: Color.cyan,
+                        image: .daily)
                 }
                 
                 Section("Practices") {
@@ -41,12 +40,12 @@ struct DisciplineView: View {
                 .foregroundStyle(.purple)            
             
                 Section("Momentum") {
-                    CircularProgressView(
+                    ProgressCard(
                         completed: discipline.momentum,
                         remaining: discipline.goalDays - discipline.momentum,
-                        foregroundStyle: Color.purple
+                        foregroundStyle: Color.purple,
+                        image: .momentum
                     )
-                    .frame(height: 150)
                 }
         }
         .navigationTitle(discipline.name)

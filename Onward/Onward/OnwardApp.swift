@@ -12,7 +12,6 @@ import SwiftData
 struct OnwardApp: App {
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
-            Item.self,
             Discipline.self,
             Practice.self,
             
@@ -25,6 +24,13 @@ struct OnwardApp: App {
             fatalError("Could not create ModelContainer: \(error)")
         }
     }()
+    
+    init() {
+        Task {
+            await MomentumResetManager.shared.checkAndResetIfNeeded()
+
+        }
+    }
 
     var body: some Scene {
         WindowGroup {

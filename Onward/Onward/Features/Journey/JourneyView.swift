@@ -8,7 +8,7 @@
 import SwiftUI
 import SwiftData
 
-struct DailyScreen: View {
+struct JourneyView: View {
     @Query var disciplines: [Discipline]
     @Environment(\.modelContext) private var modelContext
     @State private var showingAddDiscipline = false
@@ -16,7 +16,7 @@ struct DailyScreen: View {
     var body: some View {
         NavigationStack {
             if disciplines.isEmpty {
-                EmptyDisciplinesView()
+                OnwardCode()
                     .navigationTitle("Add Disciplines")
             } else {
                 List {
@@ -74,7 +74,7 @@ struct DailyScreen: View {
     }
     
     return NavigationStack {
-        DailyScreen()
+        JourneyView()
     }
     .modelContainer(container)
 }

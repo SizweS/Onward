@@ -18,7 +18,7 @@ class Discipline {
     
     init(name: String, goalDays: Int) {
         self.name = name
-        self.momentum = 15
+        self.momentum = 0
         self.lastMomentumUpdate = Date()
         self.goalDays = goalDays
     }
