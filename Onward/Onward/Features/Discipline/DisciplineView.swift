@@ -13,88 +13,60 @@ struct DisciplineView: View {
     let discipline: Discipline
     
     @State private var showingAddPractice = false
-    @State private var newPracticeName = ""
+    @FocusState private var isFocused: Bool
     @State private var presentTimePicker = false
     @State private var selectedTime = Date()
     
     var body: some View {
-        ScrollView {
-            VStack(spacing: 20) {
+        List {
+                Section("Todays Progress") {
+                    CircularProgressView(
+                        completed: discipline.practices.filter { $0.isCompleted }.count,
+                        remaining: discipline.practices.filter { !$0.isCompleted }.count,
+                        foregroundStyle: Color.cyan
+                    )
+                   .frame(height: 150)
+                }
                 
-                // Discipline name
-                Text(discipline.name)
-                    .font(.title)
-                    .fontWeight(.bold)
-                    .padding(.horizontal)
-                // Circular Progress View for tasks
-                CircularProgressView(
-                    completed: discipline.practices.filter { $0.isCompleted }.count,
-                    remaining: discipline.practices.filter { !$0.isCompleted }.count
-                )
-               .frame(height: 150)
-                
-                // Practices List
-                VStack(alignment: .leading, spacing: 10) {
-                    Text("Practices")
-                        .font(.headline)
-                        .padding(.horizontal)
-                    
+                Section("Practices") {
                     ForEach(discipline.practices) { practice in
                         PracticeView(practice: practice)
-                            .padding(.horizontal)
                     }
                     .onDelete(perform: deletePractice)
-                    
-                    Button(action: { showingAddPractice = true }) {
-                        Label("Add Practice", systemImage: "plus.circle.fill")
-                    }
-                    .padding([.horizontal, .top])
                 }
                 
-                Divider()
-                
-                // Momentum Spiral Progress View
-                VStack(spacing: 10) {
-                    Text("Momentum")
-                        .font(.headline)
-                    SpiralProgressView(
+                Button(action: { showingAddPractice = true }) {
+                    Label("Add Practice", systemImage: "plus.circle.fill")
+                }
+                .foregroundStyle(.purple)            
+            
+                Section("Momentum") {
+                    CircularProgressView(
                         completed: discipline.momentum,
-                        remaining: discipline.goalDays - discipline.momentum
+                        remaining: discipline.goalDays - discipline.momentum,
+                        foregroundStyle: Color.purple
                     )
-                    .frame(height: 250)
+                    .frame(height: 150)
                 }
-            }
         }
+        .navigationTitle(discipline.name)
         .sheet(isPresented: $showingAddPractice) {
-            NavigationView {
-                Form {
-                    TextField("Practice Name", text: $newPracticeName)
-                }
-                .navigationTitle("New Practice")
-                .navigationBarItems(
-                    leading: Button("Cancel") {
-                        showingAddPractice = false
-                        newPracticeName = ""
-                    },
-                    trailing: Button("Add") {
-                        addPractice()
-                        showingAddPractice = false
-                        newPracticeName = ""
-                    }
-                    .disabled(newPracticeName.isEmpty)
-                )
+            AddPracticeSheet(discipline: discipline) { practiceName in
+                guard !practiceName.isEmpty else { return }
+                addPractice(name: practiceName)
             }
+            .presentationDetents([.height(200)])
+            .presentationDragIndicator(.visible)
         }
+        
     }
     
-    private func addPractice() {
-        withAnimation {
-            let practice = Practice(name: newPracticeName)
+    private func addPractice(name: String) {
+            let practice = Practice(name: name)
             practice.discipline = discipline
             discipline.practices.append(practice)
             try? modelContext.save()
         }
-    }
     
     private func deletePractice(at offsets: IndexSet) {
         withAnimation {
