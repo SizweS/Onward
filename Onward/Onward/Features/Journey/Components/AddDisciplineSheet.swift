@@ -12,6 +12,12 @@ struct AddDisciplineSheet: View {
     @Binding var isPresented: Bool
     @State private var name = ""
     @State private var goalDays = 30
+    @State private var daysText = ""
+    @FocusState private var focusedField: Field?
+    
+    enum Field {
+        case name, days
+    }
     
     private func saveDiscipline() {
         guard !name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else { return }
@@ -26,22 +32,60 @@ struct AddDisciplineSheet: View {
     var body: some View {
         NavigationStack {
             Form {
-                TextField("Discipline Name", text: $name)
-                Stepper("Goal Days: \(goalDays)", value: $goalDays, in: 1...365)
+                Section(header:  Text("Create New Discipline")) {
+                    TextField("Discipline Name", text: $name)
+                        .focused($focusedField, equals: .name)
+                        .submitLabel(.next)
+                        .onSubmit {
+                            focusedField = .days
+                        }
+                    
+                    TextField("Commitment Days", text: $daysText)
+                        .focused($focusedField, equals: .days)
+                        .integersOnly($daysText)
+                        .submitLabel(.done)
+                        .onSubmit(saveDiscipline)
+                }
             }
-            .navigationTitle("New Discipline")
-            .navigationBarTitleDisplayMode(.inline)
+           // .navigationTitle("New Discipline")
+           // .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
                     Button("Cancel") { isPresented = false }
                 }
+                
                 ToolbarItem(placement: .confirmationAction) {
-                    Button("Add") {
+                    Button("Done") {
                         saveDiscipline()
                     }
-                    .disabled(name.isEmpty)
+                    .disabled(name.isEmpty || Int(daysText) == nil)
                 }
+                
+                ToolbarItem(placement: .keyboard) {
+                    Button{
+                        focusedField = nil
+                    } label: {
+                        Image(systemName: "keyboard.chevron.compact.down")
+                    }
+                }
+                
+                ToolbarItem(placement: .keyboard) {
+                    Spacer()
+                }
+                
+                if focusedField == .days {
+                    ToolbarItem(placement: .keyboard) {
+                        
+                        Button("Done") {
+                            focusedField = nil
+                            saveDiscipline()
+                        }
+                        .disabled(name.isEmpty || Int(daysText) == nil)
+                    }
+                }
+                    
             }
         }
     }
+    
 }

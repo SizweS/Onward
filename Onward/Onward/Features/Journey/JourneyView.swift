@@ -12,11 +12,12 @@ struct JourneyView: View {
     @Query var disciplines: [Discipline]
     @Environment(\.modelContext) private var modelContext
     @State private var showingAddDiscipline = false
+    @State private var showingOnwardCode = false
     
     var body: some View {
         NavigationStack {
             if disciplines.isEmpty {
-                OnwardCode()
+                JourneyCode()
                     .navigationTitle("Add Disciplines")
             } else {
                 List {
@@ -40,21 +41,34 @@ struct JourneyView: View {
                 }
             }
         }
+        .toolbar {
+            if !disciplines.isEmpty {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button(action: { showingOnwardCode = true }) {
+                        Image(systemName: "questionmark.circle")                }
+                }
+            }
+            
+            ToolbarItem(placement: .bottomBar) {
+                HStack {
+                    Button(action: { showingAddDiscipline = true }) {
+                        HStack(spacing: 8) {
+                            Image(systemName: "plus.circle.fill")
+                            Text("Add Discipline")
+                        }
+                        .font(.headline)
+                    }
+                    Spacer()
+                }
+
+            }
+        }
         .sheet(isPresented: $showingAddDiscipline) {
             AddDisciplineSheet(isPresented: $showingAddDiscipline)
             .presentationDetents([.fraction(0.25)])
         }
-        .toolbar {
-            ToolbarItem(placement: .topBarTrailing) {
-                HStack {
-                    Spacer()
-                    Button(action: { showingAddDiscipline = true }) {
-                        Image(systemName: "plus.circle.fill")
-                            .font(.system(size: 22))
-                    }
-                    .foregroundStyle(.purple)
-                }
-            }
+        .sheet(isPresented: $showingOnwardCode) {
+            JourneyCode()
         }
     }
 }

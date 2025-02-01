@@ -42,11 +42,11 @@ struct DisciplineRow: View {
                     
                     Text(percentageText)
                         .font(.caption)
-                        .foregroundColor(completionPercentage == 100 ? .green : .blue)
+                        .foregroundColor(completionPercentage == 100 ? .green : .purple)
                 }
                 
                 ProgressView(value: completionPercentage, total: 100)
-                    .tint(completionPercentage == 100 ? .green : .blue)
+                    .tint(completionPercentage == 100 ? .green : .purple)
             }
             
         }

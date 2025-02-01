@@ -17,38 +17,78 @@ struct DisciplineView: View {
     @State private var presentTimePicker = false
     @State private var selectedTime = Date()
     
+    @State private var showingDisciplineCode = false
+    
+    @State private var showingResetAlert = false
+    
     var body: some View {
-        List {
-                Section("Todays Progress") {
-                    ProgressCard(
-                        completed: discipline.practices.filter { $0.isCompleted }.count,
-                        remaining: discipline.practices.filter { !$0.isCompleted }.count,
-                        foregroundStyle: Color.cyan,
-                        image: .daily)
-                }
-                
-                Section("Practices") {
-                    ForEach(discipline.practices) { practice in
-                        PracticeView(practice: practice)
+        Group {
+            if discipline.practices.isEmpty {
+                DisciplineCode()
+            } else {
+                List {
+                    Section("Todays Progress") {
+                        ProgressCard(
+                            completed: discipline.practices.filter { $0.isCompleted }.count,
+                            remaining: discipline.practices.filter { !$0.isCompleted }.count,
+                            foregroundStyle: Color.cyan,
+                            image: .daily)
                     }
-                    .onDelete(perform: deletePractice)
+                    
+                    Section("Practices") {
+                        ForEach(discipline.practices) { practice in
+                            PracticeView(practice: practice)
+                        }
+                        .onDelete(perform: deletePractice)
+                    }
+                    
+                    Section("Momentum") {
+                        ProgressCard(
+                            completed: discipline.momentum,
+                            remaining: discipline.goalDays - discipline.momentum,
+                            foregroundStyle: Color.purple,
+                            image: .momentum
+                        )
+                    }
+                    
+                    Button(action: { showingResetAlert = true }) {
+                        Label("Reset", systemImage: "trash.fill")
+                    }
+                    .foregroundStyle(.red)
                 }
-                
-                Button(action: { showingAddPractice = true }) {
-                    Label("Add Practice", systemImage: "plus.circle.fill")
+                .alert("Reset Discipline", isPresented: $showingResetAlert) {
+                    Button("Cancel", role: .cancel) { }
+                    Button("Reset", role: .destructive) {
+                        resetDiscipline()
+                    }
+                } message: {
+                    Text("Are you sure? This will reset your momentum to 0 days and clear all practice completions.")
                 }
-                .foregroundStyle(.purple)            
-            
-                Section("Momentum") {
-                    ProgressCard(
-                        completed: discipline.momentum,
-                        remaining: discipline.goalDays - discipline.momentum,
-                        foregroundStyle: Color.purple,
-                        image: .momentum
-                    )
-                }
+                .navigationTitle(discipline.name)
+            }
         }
-        .navigationTitle(discipline.name)
+        .toolbar {
+            if !discipline.practices.isEmpty {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button(action: { showingDisciplineCode = true }) {
+                        Image(systemName: "questionmark.circle")
+                    }
+                }
+            }
+            
+            ToolbarItem(placement: .bottomBar) {
+                HStack {
+                    Button(action: { showingAddPractice = true }) {
+                        HStack(spacing: 8) {
+                            Image(systemName: "plus.circle.fill")
+                            Text("Add Practice")
+                        }
+                        .font(.headline)
+                    }
+                    Spacer()
+                }
+            }
+        }
         .sheet(isPresented: $showingAddPractice) {
             AddPracticeSheet(discipline: discipline) { practiceName in
                 guard !practiceName.isEmpty else { return }
@@ -57,15 +97,27 @@ struct DisciplineView: View {
             .presentationDetents([.height(200)])
             .presentationDragIndicator(.visible)
         }
+        .sheet(isPresented: $showingDisciplineCode) {
+            DisciplineCode()
+        }
         
     }
     
     private func addPractice(name: String) {
-            let practice = Practice(name: name)
-            practice.discipline = discipline
-            discipline.practices.append(practice)
-            try? modelContext.save()
+        let practice = Practice(name: name)
+        practice.discipline = discipline
+        discipline.practices.append(practice)
+        try? modelContext.save()
+    }
+    
+    private func resetDiscipline() {
+        discipline.momentum = 0
+        discipline.lastMomentumUpdate = Date()
+        discipline.practices.forEach { practice in
+            practice.isCompleted = false
         }
+        try? modelContext.save()
+    }
     
     private func deletePractice(at offsets: IndexSet) {
         withAnimation {

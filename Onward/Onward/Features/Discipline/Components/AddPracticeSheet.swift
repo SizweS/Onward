@@ -18,13 +18,13 @@ struct AddPracticeSheet: View {
     var body: some View {
         NavigationStack {
             Form {
-                TextField("Practice Name", text: $name)
-                    .focused($isFocused)
-                    .submitLabel(.done)
-                    .onSubmit(addPractice)
+                Section(header: Text("Create New Practice")) {
+                    TextField("Practice Name", text: $name)
+                        .focused($isFocused)
+                        .submitLabel(.done)
+                        .onSubmit(addPractice)
+                }
             }
-            .navigationTitle("New Practice")
-            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
                     Button("Cancel") { dismiss() }
