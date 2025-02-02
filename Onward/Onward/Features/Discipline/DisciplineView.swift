@@ -4,21 +4,19 @@
 //
 //  Created by Sizwe Maluleke on 2025/01/10.
 //
-
 import SwiftUI
 import SwiftData
 
 struct DisciplineView: View {
     @Environment(\.modelContext) private var modelContext
-    let discipline: Discipline
+    @Bindable var discipline: Discipline
     
     @State private var showingAddPractice = false
     @FocusState private var isFocused: Bool
-    @State private var presentTimePicker = false
     @State private var selectedTime = Date()
+    @State private var selectedPractice: Practice?
     
     @State private var showingDisciplineCode = false
-    
     @State private var showingResetAlert = false
     
     var body: some View {
@@ -27,19 +25,45 @@ struct DisciplineView: View {
                 DisciplineCode()
             } else {
                 List {
-                    Section("Todays Progress") {
+                    Section("Today's Progress") {
                         ProgressCard(
                             completed: discipline.practices.filter { $0.isCompleted }.count,
                             remaining: discipline.practices.filter { !$0.isCompleted }.count,
                             foregroundStyle: Color.cyan,
-                            image: .daily)
+                            image: .daily
+                        )
                     }
                     
                     Section("Practices") {
                         ForEach(discipline.practices) { practice in
-                            PracticeView(practice: practice)
+                            VStack(alignment: .leading) {
+                                PracticeView(practice: practice)
+                                if let reminderTime = practice.reminderTime {
+                                    HStack {
+                                        Image(systemName: "alarm")
+                                            .font(.subheadline)
+                                            .foregroundStyle(.secondary)
+                                        Text(": \(formattedTime(reminderTime))")
+                                            .font(.subheadline)
+                                            .foregroundStyle(.secondary)
+                                    }
+                                }
+                            }
+                            .swipeActions {
+                                Button {
+                                    selectPracticeAndPresentSheet(practice)
+                                } label: {
+                                    Label("Set Reminder", systemImage: "bell.fill")
+                                }
+                                .tint(.indigo)
+                                
+                                Button(role: .destructive) {
+                                    deletePractice(practice)
+                                } label: {
+                                    Label("Delete", systemImage: "trash.fill")
+                                }
+                            }
                         }
-                        .onDelete(perform: deletePractice)
                     }
                     
                     Section("Momentum") {
@@ -52,9 +76,9 @@ struct DisciplineView: View {
                     }
                     
                     Button(action: { showingResetAlert = true }) {
-                        Label("Reset", systemImage: "trash.fill")
+                        Label("Reset", systemImage: "arrow.clockwise.circle.fill")
                     }
-                    .foregroundStyle(.red)
+                    .foregroundStyle(.orange)
                 }
                 .alert("Reset Discipline", isPresented: $showingResetAlert) {
                     Button("Cancel", role: .cancel) { }
@@ -89,6 +113,18 @@ struct DisciplineView: View {
                 }
             }
         }
+        .sheet(item: $selectedPractice) { practice in
+            TimePickerSheet(
+                selectedTime: $selectedTime,
+                practice: practice,
+                onSetReminder: { time in
+                    scheduleReminder(for: practice, at: time)
+                },
+                onRemoveReminder: {
+                    removeReminder(for: practice)
+                }
+            )
+        }
         .sheet(isPresented: $showingAddPractice) {
             AddPracticeSheet(discipline: discipline) { practiceName in
                 guard !practiceName.isEmpty else { return }
@@ -100,12 +136,11 @@ struct DisciplineView: View {
         .sheet(isPresented: $showingDisciplineCode) {
             DisciplineCode()
         }
-        
     }
     
     private func addPractice(name: String) {
         let practice = Practice(name: name)
-        practice.discipline = discipline
+        modelContext.insert(practice)
         discipline.practices.append(practice)
         try? modelContext.save()
     }
@@ -119,28 +154,69 @@ struct DisciplineView: View {
         try? modelContext.save()
     }
     
-    private func deletePractice(at offsets: IndexSet) {
-        withAnimation {
-            for index in offsets {
-                let practice = discipline.practices[index]
-                discipline.practices.remove(at: index)
-                modelContext.delete(practice)
+    private func selectPracticeAndPresentSheet(_ practice: Practice) {
+        selectedPractice = practice
+        selectedTime = practice.reminderTime ?? Date()
+    }
+    
+    private func formattedTime(_ date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.timeStyle = .short
+        return formatter.string(from: date)
+    }
+    
+    private func scheduleReminder(for practice: Practice, at time: Date) {
+        let content = UNMutableNotificationContent()
+        content.title = "\(discipline.name) Reminder"
+        content.body = "Remember to \(practice.name)"
+        content.sound = .default
+        
+        let calendar = Calendar.current
+        let hour = calendar.component(.hour, from: time)
+        let minute = calendar.component(.minute, from: time)
+        
+        var dateComponents = DateComponents()
+        dateComponents.hour = hour
+        dateComponents.minute = minute
+        
+        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+        let request = UNNotificationRequest(identifier: "\(discipline.name)_\(practice.name)", content: content, trigger: trigger)
+        
+        UNUserNotificationCenter.current().add(request) { error in
+            if let error = error {
+                print("Failed to schedule notification: \(error)")
             }
+        }
+        
+        practice.reminderTime = time
+        try? modelContext.save()
+    }
+    
+    private func removeReminder(for practice: Practice) {
+        UNUserNotificationCenter.current().removePendingNotificationRequests(
+            withIdentifiers: ["\(discipline.name)_\(practice.name)"]
+        )
+        practice.reminderTime = nil
+        try? modelContext.save()
+    }
+    
+    private func deletePractice(_ practice: Practice) {
+        removeReminder(for: practice)
+        
+        if let index = discipline.practices.firstIndex(where: { $0.id == practice.id }) {
+            modelContext.delete(practice)
             try? modelContext.save()
         }
     }
 }
 
 #Preview {
-    // Create a preview container
     let config = ModelConfiguration(isStoredInMemoryOnly: true)
     let container = try! ModelContainer(for: Discipline.self, configurations: config)
     
-    // Create sample discipline with various practices
     let discipline = Discipline(name: "Learning Swift", goalDays: 100)
     discipline.momentum = 30
     
-    // Add sample practices
     let practices = [
         "Read SwiftUI Documentation",
         "Complete Daily Coding Challenge",
@@ -155,20 +231,13 @@ struct DisciplineView: View {
         discipline.practices.append(practice)
     }
     
-    // Mark some practices as completed
     discipline.practices[0].isCompleted = true
     discipline.practices[2].isCompleted = true
     
-    // Add the discipline to the container
     container.mainContext.insert(discipline)
     
-    // Create the navigation stack with our view
     return NavigationStack {
         DisciplineView(discipline: discipline)
     }
     .modelContainer(container)
 }
-
-
-
-

@@ -11,7 +11,6 @@ struct AddDisciplineSheet: View {
     @Environment(\.modelContext) private var modelContext
     @Binding var isPresented: Bool
     @State private var name = ""
-    @State private var goalDays = 30
     @State private var daysText = ""
     @FocusState private var focusedField: Field?
     
@@ -22,7 +21,7 @@ struct AddDisciplineSheet: View {
     private func saveDiscipline() {
         guard !name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else { return }
         
-        let discipline = Discipline(name: name, goalDays: goalDays)
+        let discipline = Discipline(name: name, goalDays: Int(daysText) ?? 0)
         modelContext.insert(discipline)
         
         try? modelContext.save()

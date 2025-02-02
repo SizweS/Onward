@@ -35,6 +35,13 @@ struct OnwardApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .onAppear {
+                    UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
+                        if let error = error {
+                            print("Notification permission error: \(error)")
+                        }
+                    }
+                }
         }
         .modelContainer(sharedModelContainer)
     }

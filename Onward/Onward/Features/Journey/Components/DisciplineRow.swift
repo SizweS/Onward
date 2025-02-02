@@ -7,7 +7,7 @@
 import SwiftUI
 
 struct DisciplineRow: View {
-    let discipline: Discipline
+    @Bindable var discipline: Discipline
     @State private var showingReminderSheet = false
     
     var completionPercentage: Double {
@@ -17,8 +17,7 @@ struct DisciplineRow: View {
     }
     
     var progressText: String {
-        let completedDays = discipline.practices.filter { $0.isCompleted }.count
-        return "\(completedDays)/\(discipline.goalDays) days"
+        return "\(discipline.momentum)/\(discipline.goalDays) days"
     }
     
     var percentageText: String {

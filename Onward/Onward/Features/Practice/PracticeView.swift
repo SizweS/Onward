@@ -9,7 +9,7 @@ import SwiftData
 
 struct PracticeView: View {
     @Environment(\.modelContext) private var modelContext
-    let practice: Practice
+    @Bindable var practice: Practice
     @State private var showingReminderSheet = false
     @State private var errorMessage: String?
     @State private var showingError = false
@@ -19,6 +19,7 @@ struct PracticeView: View {
     private func toggleCompletion() {
         withAnimation(.spring(response: 0.3, dampingFraction: 0.6)) {
             practice.isCompleted.toggle()
+            try? modelContext.save()
             generator.impactOccurred()
         }
     }

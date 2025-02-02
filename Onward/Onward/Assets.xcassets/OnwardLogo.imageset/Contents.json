@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "OnwardLogo.svg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

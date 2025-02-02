@@ -13,6 +13,7 @@ class Practice {
     var name: String
     var isCompleted: Bool = false
     var discipline: Discipline?
+    var reminderTime: Date?
 
     init(name: String) {
         self.name = name

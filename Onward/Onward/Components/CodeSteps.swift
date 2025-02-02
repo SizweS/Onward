@@ -25,7 +25,7 @@ struct CodeStepView: View {
             
             Text(step.description)
                 .font(.subheadline)
-                .foregroundColor(.secondary)
+                .foregroundStyle(.secondary)
         }
     }
 }
