@@ -1,38 +1,47 @@
-# Onward - Discipline & Practice Tracker
+# Onward
 
-A minimalist iOS app to help build and maintain discipline through consistent daily practices. Built with SwiftUI and SwiftData, this project serves as both a personal tool and an educational resource.
-
-## About the Project
-
-**Onward** is designed to:
-- Track multiple disciplines and their associated practices
-- Monitor daily progress and streaks
-- Showcase modern iOS development with SwiftUI and SwiftData
+A minimalist habit tracking app focused on building lasting discipline through daily practices.
 
 ### Key Features
 
-- **Discipline Management**:
-  - Create custom disciplines
-  - Add practices to each discipline
-  - Track daily completion
-- **Progress Tracking**:
-  - Daily streak monitoring
-  - Practice completion history
-  - Progress statistics
+- **Daily Journey*:
+  - Add Multiple disciplines to the Daily Journey/mainScreen
+  - quick views of days completed and todays practice completion percentage
+ 
+- **Practice Management**:
+  - Add multiple practices to each discipline
+  - Daily completion tracking
+  - Practice reminders at custom times
+  - Reset functionality for fresh starts
+
+- **Momentum System**:
+  - Daily Momentum tracking
+  - Momentum resets at midnight if practices are incomplete
+  - Progress visualization
+  - Goal setting with commitment days
+
 - **Modern Architecture**:
-  - Built with SwiftUI
-  - SwiftData for persistence
-  - Local notifications
+  - Built with SwiftUI and SwiftData
+  - Local notifications for reminders
+  - Persistent storage
+
 - **Minimalist Design**:
-  - Focus on core functionality
-  - Clean, intuitive interface
+  - Clean, focused interface
+  - Intuitive navigation
+  - Clear progress indicators
+  - Distraction-free tracking
 
-## Development Progress
+## Development Status
 
-- [x] Basic app structure
-- [x] SwiftData implementation
-- [x] Core tracking features
-- [ ] Extended statistics
+- [x] Core app structure
+- [x] SwiftData persistence
+- [x] Discipline management
+- [x] Practice management
+- [x] Momentum tracking
+- [x] Daily resets
+- [x] Reminders
+- [ ] Widget support
+- [ ] App Intents supports
 - [ ] App Store release
 
 ## Installation
@@ -42,18 +51,17 @@ A minimalist iOS app to help build and maintain discipline through consistent da
 git clone https://github.com/SizweS/Onward.git
 ```
 
-2. **Clone the Repository**: 
+2. **Open Project**:
 ```
-cd onward
+cd Onward
 open Onward.xcodeproj
 ```
 
-3. **Requirements**: 
-- iOS17+
-- Xcode 15+
-- macOS Sonoma+
+3. System Requirements:
+iOS 17.0+
+Xcode 15.0+
+macOS Sonoma 14.0+
 
-**Lets connect on socials**
-- https://www.linkedin.com/in/sizwe-maluleke-5a93b2211/
-- 
-
+## Conect
+- LinkedIn: [Sizwe Maluleke](https://www.linkedin.com/in/sizwe-maluleke-5a93b2211)
+- Instagram: [Sizwe Maluleke](https://www.instagram.com/sizwe_maluleke/)
