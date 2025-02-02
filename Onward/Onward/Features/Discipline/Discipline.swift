@@ -9,10 +9,8 @@ import Foundation
 import SwiftData
 
 @Model
-class Discipline: ReminderProtocol {
+class Discipline {
     var name: String
-    var reminderHour: Int?
-    var reminderMinute: Int?
     @Relationship(deleteRule: .cascade) var practices: [Practice] = []
     var momentum: Int
     var lastMomentumUpdate: Date
@@ -20,9 +18,7 @@ class Discipline: ReminderProtocol {
     
     init(name: String, goalDays: Int) {
         self.name = name
-        self.reminderHour = nil
-        self.reminderMinute = nil
-        self.momentum = 15
+        self.momentum = 0
         self.lastMomentumUpdate = Date()
         self.goalDays = goalDays
     }

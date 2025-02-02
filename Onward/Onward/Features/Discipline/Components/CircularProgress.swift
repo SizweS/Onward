@@ -7,9 +7,10 @@
 
 import SwiftUI
 
-struct CircularProgressView: View {
+struct CircularProgress: View {
     let completed: Int
     let remaining: Int
+    let foregroundStyle: Color
     
     private var percentage: Int {
         guard completed + remaining > 0 else { return 0 }
@@ -26,12 +27,12 @@ struct CircularProgressView: View {
             
             Circle()
                 .stroke(style: StrokeStyle(lineWidth: 15))
-                .foregroundColor(Color.gray.opacity(0.2))
+                .foregroundStyle(Color.gray.opacity(0.2))
             
             Circle()
                 .trim(from: 0, to: fillAmount)
                 .stroke(style: StrokeStyle(lineWidth: 18, lineCap: .round, lineJoin: .round))
-                .foregroundStyle(.green)
+                .foregroundStyle(foregroundStyle)
                 .rotationEffect(.degrees(-90))
             
             HStack {
@@ -46,5 +47,5 @@ struct CircularProgressView: View {
 }
 
 #Preview {
-    CircularProgressView(completed: 0, remaining: 0)
+    CircularProgress(completed: 4, remaining: 6, foregroundStyle: .cyan)
 }

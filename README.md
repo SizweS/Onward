@@ -1,75 +1,67 @@
-# 75 Hard Challenge Tracker
+# Onward
 
-A minimalist iOS app to help you track your progress during the 75 Hard challenge. This project was developed as a personal tool to stay accountable and complete the challenge while serving as an educational resource to share the development process with others.
-
-## About the Project
-
-The **75 Hard Challenge Tracker** is designed to:
-- Track your daily challenge tasks efficiently.
-- Provide an overview of your progress.
-- Document the development journey to teach others about building an MVP iOS app.
+A minimalist habit tracking app focused on building lasting discipline through daily practices.
 
 ### Key Features
 
-- **Daily Task Tracking**:
-  - Two 45-minute workouts.
-  - Drink 1 gallon of water.
-  - Read 10 pages of a book.
-  - Follow a diet.
-  - Take a progress picture.
-- **Progress Overview**:
-  - Calendar view highlighting completed days.
-  - Streak tracker to show consecutive days.
-- **Reminders** (optional):
-  - Local notifications for daily task reminders.
-- **Minimalist UI**:
-  - Built with SwiftUI for simplicity and ease of use.
-- **Local Data Storage**:
-  - UserDefaults or Core Data for saving progress locally.
+- **Daily Journey*:
+  - Add Multiple disciplines to the Daily Journey/mainScreen
+  - quick views of days completed and todays practice completion percentage
+ 
+- **Practice Management**:
+  - Add multiple practices to each discipline
+  - Daily completion tracking
+  - Practice reminders at custom times
+  - Reset functionality for fresh starts
 
-## Why This Project?
+- **Momentum System**:
+  - Daily Momentum tracking
+  - Momentum resets at midnight if practices are incomplete
+  - Progress visualization
+  - Goal setting with commitment days
 
-This app was built to:
-1. **Stay Accountable**: A personal tool to complete the 75 Hard challenge.
-2. **Teach and Inspire**: Share the app development process in a LinkedIn article to help others learn about building an MVP iOS app.
-3. **Learn by Doing**: Explore SwiftUI and iOS development features like local notifications and Core Data.
+- **Modern Architecture**:
+  - Built with SwiftUI and SwiftData
+  - Local notifications for reminders
+  - Persistent storage
 
-## How It Works
+- **Minimalist Design**:
+  - Clean, focused interface
+  - Intuitive navigation
+  - Clear progress indicators
+  - Distraction-free tracking
+
+## Development Status
+
+- [x] Core app structure
+- [x] SwiftData persistence
+- [x] Discipline management
+- [x] Practice management
+- [x] Momentum tracking
+- [x] Daily resets
+- [x] Reminders
+- [ ] Widget support
+- [ ] App Intents supports
+- [ ] App Store release
+
+## Installation
 
 1. **Clone the Repository**: 
-   ```bash
-   git clone https://github.com/username/75-hard-tracker.git
-   ```
+```bash
+git clone https://github.com/SizweS/Onward.git
+```
 
-2. **Open in Xcode**:
-   - Open the `.xcodeproj` file in Xcode.
+2. **Open Project**:
+```
+cd Onward
+open Onward.xcodeproj
+```
 
-3. **Run the App**:
-   - Build and run the app on an iOS simulator or a connected device.
+3. System Requirements:
+iOS 17.0+
+Xcode 15.0+
+macOS Sonoma 14.0+
 
-4. **Track Your Progress**:
-   - Use the app daily to track your challenge tasks and monitor your progress.
-
-## Technologies Used
-
-- **SwiftUI**: For building the user interface.
-- **Core Data/UserDefaults**: For data persistence.
-- **Local Notifications**: For optional reminders.
-- **Xcode**: Development environment.
-
-## Goals for the Project
-
-1. **Personal Goal**: Complete the 75 Hard challenge using the app.
-2. **Educational Goal**: Share the development process on LinkedIn, including challenges, solutions, and lessons learned.
-
-## Contributing
-
-While this project was created for personal and educational use, feel free to:
-- Explore, clone / fork the code.
-
-
-## Acknowledgments
-
-- Inspired by the 75 Hard challenge created by [Andy Frisella](https://andyfrisella.com/).
-- My sister Xihluke Maluleke who motivated me to start the challenge.
-- Built to motivate and assist individuals in achieving their personal development(software & lifestyle) goals.
+## Conect
+- LinkedIn: [Sizwe Maluleke](https://www.linkedin.com/in/sizwe-maluleke-5a93b2211)
+- Instagram: [Sizwe Maluleke](https://www.instagram.com/sizwe_maluleke/)
